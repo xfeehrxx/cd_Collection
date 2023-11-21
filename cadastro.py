@@ -4,9 +4,8 @@ art = ''
 
 name = input('Nick:\n')
 
-file = name + '.json'
 try:
-    with(open(file, 'r')) as file: 
+    with(open(name + '.json', 'r')) as file: 
         data = json.load(file)
 except FileNotFoundError:
     data=[]
@@ -25,7 +24,7 @@ while art != 'N' and art != 'n':
         new = {'artista': art, 'album': alb}
         data.append(new)
 
-    with open(file, 'w') as file:
+    with open(name + '.json', 'w') as file:
         json.dump(data, file, indent=4)
     art = input('Cadastrar novo album? (S/N)\n').strip()
 
