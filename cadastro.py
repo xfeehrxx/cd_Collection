@@ -1,4 +1,5 @@
 import json
+from unidecode import unidecode
 
 art = ''
 
@@ -21,7 +22,7 @@ while art != 'N' and art != 'n':
             break
         
     if (b == False):
-        new = {'artista': art, 'album': alb}
+        new = {'artista': art, 'album': unidecode(alb)}
         data.append(new)
 
     with open(name + '.json', 'w') as file:
